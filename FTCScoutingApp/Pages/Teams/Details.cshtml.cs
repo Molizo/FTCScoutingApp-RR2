@@ -33,7 +33,11 @@ namespace FTCScoutingApp.Pages.Teams
             {
                 return NotFound();
             }
-            return Page();
+
+            if (User.Identity.IsAuthenticated)
+                return Page();
+            else
+                return RedirectToPage("/Error");
         }
     }
 }

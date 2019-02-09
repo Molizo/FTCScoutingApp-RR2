@@ -35,5 +35,7 @@ namespace FTCScoutingApp.Models
         public bool PlacesTeamMarker { get; set; }
         [Display(Name = "Robot parks in crater")]
         public bool ParksInCrater { get; set; }
+
+        public string AllowedUserIDs { get; set; }
     }
 }

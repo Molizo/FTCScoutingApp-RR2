@@ -38,35 +38,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Team) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Wins)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Loses)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ties)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrefersStartingCrater)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasAutonomy)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Team)
+        {
+            if (item.AllowedUserIDs.Split(';').ToList().Contains(User.Identity.Name) || User.Identity.Name == "admin@ftcscoutingapp.com")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TeamName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Wins)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Loses)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ties)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrefersStartingCrater)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HasAutonomy)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>

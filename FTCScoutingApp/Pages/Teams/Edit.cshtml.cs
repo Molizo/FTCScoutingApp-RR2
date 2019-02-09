@@ -35,14 +35,20 @@ namespace FTCScoutingApp.Pages.Teams
             {
                 return NotFound();
             }
-            return Page();
+            if (User.Identity.IsAuthenticated)
+                return Page();
+            else
+                return RedirectToPage("/Error");
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                return Page();
+                if (User.Identity.IsAuthenticated)
+                    return Page();
+                else
+                    return RedirectToPage("/Error");
             }
 
             _context.Attach(Team).State = EntityState.Modified;

@@ -36,6 +36,8 @@ namespace FTCScoutingApp.Pages.Teams
                 return Page();
             }
             
+            Team.AllowedUserIDs = User.Identity.Name;
+
             _context.Team.Add(Team);
             await _context.SaveChangesAsync();
 
