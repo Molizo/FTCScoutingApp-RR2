@@ -1,0 +1,91 @@
+﻿@page
+@model FTCScoutingApp.Pages.Teams.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete a team</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.TeamID)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.TeamName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.TeamName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.Wins)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.Wins)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.Loses)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.Loses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.Ties)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.Ties)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.StartsLatched)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.StartsLatched)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.PrefersStartingCrater)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.PrefersStartingCrater)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.KnownRobotProblems)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.KnownRobotProblems)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.HasAutonomy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.HasAutonomy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.MovesGoldMineral)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.MovesGoldMineral)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.PlacesTeamMarker)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.PlacesTeamMarker)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.ParksInCrater)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Team.ParksInCrater)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Team.ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

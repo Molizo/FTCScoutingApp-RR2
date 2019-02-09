@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FTCScoutingApp</title>
+    <title>@ViewData["Title"] | FTC Live Scouting App</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,13 +25,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">FTCScoutingApp</a>
+                <a asp-page="/Index" class="navbar-brand">FTC Live Scouting App</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-page="/Teams/Index">Teams</a></li>
+                        }
+                    }
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -45,7 +48,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - FTCScoutingApp</p>
+            <p>&copy; 2019 - Mihnea Theodor Visoiu | All rights reserved</p>
         </footer>
     </div>
 
