@@ -18,22 +18,22 @@ namespace FTCScoutingApp.Models
         public int Loses { get; set; }
         public int Ties { get; set; }
 
-        [Display(Name = "Robot starts latched")]
+        [Display(Name = "Latches")]
         public bool StartsLatched { get; set; }
-        [Display(Name = "Robot prefers starting at crater")]
+        [Display(Name = "Starts at crater")]
         public bool PrefersStartingCrater { get; set; }
 
         [Display(Name = "Problems with robot")]
         [DataType(DataType.MultilineText)]
         public string KnownRobotProblems { get; set; }
 
-        [Display(Name = "Robot has autonomy")]
+        [Display(Name = "Autonomy")]
         public bool HasAutonomy { get; set; }
-        [Display(Name = "Robot moves gold mineral")]
+        [Display(Name = "Moves gold mineral")]
         public bool MovesGoldMineral { get; set; }
-        [Display(Name = "Robot places team marker")]
+        [Display(Name = "Places team marker")]
         public bool PlacesTeamMarker { get; set; }
-        [Display(Name = "Robot parks in crater")]
+        [Display(Name = "Parks in crater")]
         public bool ParksInCrater { get; set; }
 
         public string AllowedUserIDs { get; set; }
