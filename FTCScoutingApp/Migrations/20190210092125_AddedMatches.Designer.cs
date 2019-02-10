@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FTCScoutingApp.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20190209175053_AllowedUserIDImplementation")]
-    partial class AllowedUserIDImplementation
+    [Migration("20190210092125_AddedMatches")]
+    partial class AddedMatches
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,11 +20,53 @@ namespace FTCScoutingApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FTCScoutingApp.Models.Event", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EventName");
+
+                    b.Property<string>("GamesPlayed");
+
+                    b.Property<int>("MatchesPlayed");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Event");
+                });
+
+            modelBuilder.Entity("FTCScoutingApp.Models.Match", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlueAllianceScore");
+
+                    b.Property<string>("BlueTeam1ID");
+
+                    b.Property<string>("BlueTeam2ID");
+
+                    b.Property<int>("RedAllianceScore");
+
+                    b.Property<string>("RedTeam1ID");
+
+                    b.Property<string>("RedTeam2ID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Match");
+                });
+
             modelBuilder.Entity("FTCScoutingApp.Models.Team", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AllowedUserIDs");
 
                     b.Property<bool>("HasAutonomy");
 

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FTCScoutingApp.Migrations
 {
-    [DbContext(typeof(TeamContext))]
+    [DbContext(typeof(AppDataContext))]
     [Migration("20190209182646_AllowedUserIDImplementation2")]
     partial class AllowedUserIDImplementation2
     {

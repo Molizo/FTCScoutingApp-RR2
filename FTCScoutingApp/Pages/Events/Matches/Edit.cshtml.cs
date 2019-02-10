@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FTCScoutingApp.Models;
 
-namespace FTCScoutingApp.Pages.Teams
+namespace FTCScoutingApp.Pages.Events.Matches
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace FTCScoutingApp.Pages.Teams
         }
 
         [BindProperty]
-        public Team Team { get; set; }
+        public Match Match { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,29 +29,23 @@ namespace FTCScoutingApp.Pages.Teams
                 return NotFound();
             }
 
-            Team = await _context.Team.FirstOrDefaultAsync(m => m.ID == id);
+            Match = await _context.Match.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Team == null)
+            if (Match == null)
             {
                 return NotFound();
             }
-            if (User.Identity.IsAuthenticated)
-                return Page();
-            else
-                return RedirectToPage("/Error");
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                if (User.Identity.IsAuthenticated)
-                    return Page();
-                else
-                    return RedirectToPage("/Error");
+                return Page();
             }
 
-            _context.Attach(Team).State = EntityState.Modified;
+            _context.Attach(Match).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +53,7 @@ namespace FTCScoutingApp.Pages.Teams
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TeamExists(Team.ID))
+                if (!MatchExists(Match.ID))
                 {
                     return NotFound();
                 }
@@ -72,9 +66,9 @@ namespace FTCScoutingApp.Pages.Teams
             return RedirectToPage("./Index");
         }
 
-        private bool TeamExists(int id)
+        private bool MatchExists(int id)
         {
-            return _context.Team.Any(e => e.ID == id);
+            return _context.Match.Any(e => e.ID == id);
         }
     }
 }

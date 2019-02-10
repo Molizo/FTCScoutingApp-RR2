@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FTCScoutingApp.Models;
 
-namespace FTCScoutingApp.Pages.Teams
+namespace FTCScoutingApp.Pages.Events
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace FTCScoutingApp.Pages.Teams
         }
 
         [BindProperty]
-        public Team Team { get; set; }
+        public Event Event { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,17 +28,13 @@ namespace FTCScoutingApp.Pages.Teams
                 return NotFound();
             }
 
-            Team = await _context.Team.FirstOrDefaultAsync(m => m.ID == id);
+            Event = await _context.Event.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Team == null)
+            if (Event == null)
             {
                 return NotFound();
             }
-
-            if (User.Identity.IsAuthenticated)
-                return Page();
-            else
-                return RedirectToPage("/Error");
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
@@ -48,11 +44,11 @@ namespace FTCScoutingApp.Pages.Teams
                 return NotFound();
             }
 
-            Team = await _context.Team.FindAsync(id);
+            Event = await _context.Event.FindAsync(id);
 
-            if (Team != null)
+            if (Event != null)
             {
-                _context.Team.Remove(Team);
+                _context.Event.Remove(Event);
                 await _context.SaveChangesAsync();
             }
 

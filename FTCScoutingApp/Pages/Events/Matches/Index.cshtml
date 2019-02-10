@@ -1,0 +1,66 @@
+﻿@page
+@model FTCScoutingApp.Pages.Events.Matches.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].BlueAllianceScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].RedAllianceScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].BlueTeam1ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].BlueTeam2ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].RedTeam1ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match[0].RedTeam2ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Match) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlueAllianceScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RedAllianceScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlueTeam1ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlueTeam2ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RedTeam1ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RedTeam2ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

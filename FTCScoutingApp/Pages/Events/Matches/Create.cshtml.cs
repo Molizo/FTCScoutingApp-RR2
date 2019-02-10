@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FTCScoutingApp.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace FTCScoutingApp.Pages.Teams
+namespace FTCScoutingApp.Pages.Events.Matches
 {
     public class CreateModel : PageModel
     {
@@ -20,14 +21,14 @@ namespace FTCScoutingApp.Pages.Teams
 
         public IActionResult OnGet()
         {
-            if(User.Identity.IsAuthenticated)
-                return Page();
-            else
-                return RedirectToPage("/Error");
+            Team = _context.Team.ToList();
+            return Page();
         }
 
         [BindProperty]
-        public Team Team { get; set; }
+        public Match Match { get; set; }
+        [BindProperty]
+        public IList<Team> Team { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -35,10 +36,8 @@ namespace FTCScoutingApp.Pages.Teams
             {
                 return Page();
             }
-            
-            Team.AllowedUserIDs = User.Identity.Name;
 
-            _context.Team.Add(Team);
+            _context.Match.Add(Match);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -44,7 +44,7 @@ namespace FTCScoutingApp
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<TeamContext>(options =>
+            services.AddDbContext<AppDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TeamContext")));
             
         }

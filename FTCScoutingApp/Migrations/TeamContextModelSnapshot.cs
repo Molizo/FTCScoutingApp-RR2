@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FTCScoutingApp.Migrations
 {
-    [DbContext(typeof(TeamContext))]
+    [DbContext(typeof(AppDataContext))]
     partial class TeamContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -17,6 +17,46 @@ namespace FTCScoutingApp.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("FTCScoutingApp.Models.Event", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EventName");
+
+                    b.Property<string>("GamesPlayed");
+
+                    b.Property<int>("MatchesPlayed");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Event");
+                });
+
+            modelBuilder.Entity("FTCScoutingApp.Models.Match", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlueAllianceScore");
+
+                    b.Property<string>("BlueTeam1ID");
+
+                    b.Property<string>("BlueTeam2ID");
+
+                    b.Property<int>("RedAllianceScore");
+
+                    b.Property<string>("RedTeam1ID");
+
+                    b.Property<string>("RedTeam2ID");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Match");
+                });
 
             modelBuilder.Entity("FTCScoutingApp.Models.Team", b =>
                 {

@@ -1,0 +1,44 @@
+﻿@page
+@model FTCScoutingApp.Pages.Events.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Event.EventName" class="control-label"></label>
+                <input asp-for="Event.EventName" class="form-control" />
+                <span asp-validation-for="Event.EventName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.MatchesPlayed" class="control-label"></label>
+                <input asp-for="Event.MatchesPlayed" class="form-control" />
+                <span asp-validation-for="Event.MatchesPlayed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.GamesPlayed" class="control-label"></label>
+                <input asp-for="Event.GamesPlayed" class="form-control" />
+                <span asp-validation-for="Event.GamesPlayed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

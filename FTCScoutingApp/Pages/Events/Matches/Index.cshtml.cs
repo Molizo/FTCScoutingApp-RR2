@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FTCScoutingApp.Models;
 
-namespace FTCScoutingApp.Pages.Teams
+namespace FTCScoutingApp.Pages.Events.Matches
 {
     public class IndexModel : PageModel
     {
@@ -18,11 +18,11 @@ namespace FTCScoutingApp.Pages.Teams
             _context = context;
         }
 
-        public IList<Team> Team { get;set; }
+        public IList<Match> Match { get;set; }
 
         public async Task OnGetAsync()
         {
-            Team = await _context.Team.ToListAsync();
+            Match = await _context.Match.ToListAsync();
         }
     }
 }
