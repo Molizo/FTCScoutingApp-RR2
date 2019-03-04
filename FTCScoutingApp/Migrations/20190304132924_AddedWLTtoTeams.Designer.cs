@@ -3,14 +3,16 @@ using FTCScoutingApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FTCScoutingApp.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    partial class TeamContextModelSnapshot : ModelSnapshot
+    [Migration("20190304132924_AddedWLTtoTeams")]
+    partial class AddedWLTtoTeams
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

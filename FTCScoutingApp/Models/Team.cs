@@ -14,6 +14,10 @@ namespace FTCScoutingApp.Models
 
         [Display(Name = "Team country")] public string TeamCountry { get; set; }
 
+        [Display(Name = "Wins")] public int Wins { get; set; }
+        [Display(Name = "Loses")] public int Loses { get; set; }
+        [Display(Name = "Ties")] public int Ties { get; set; }
+
         [Display(Name = "Start location")] public string StartLocation { get; set; }
 
         [Display(Name = "End location")] public string EndLocation { get; set; }
