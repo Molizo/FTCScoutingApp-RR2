@@ -39,8 +39,25 @@
             </div>
             <div class="form-group">
                 <label asp-for="Match.BlueTeam1ID" class="control-label"></label>
-                <input asp-for="Match.BlueTeam1ID" class="form-control" />
-                @Html.DropDownListFor(model => model.Team, teamIDs, "-- Select Team --")
+                <select class="form-control" id="State" name="State">
+                    <option value="">- Please select a state -</option>
+                    <option value="ACT">ACT</option>
+                    <option value="New South Wales">New South Wales</option>
+                    <option value="Northern Territories">Northern Territories</option>
+                    <option value="Queensland">Queensland</option>
+                    <option value="South Australia">South Australia</option>
+                    <option value="Victoria">Victoria</option>
+                    <option value="Western Australia">Western Australia</option>
+                </select>
+                <!--
+    <input asp-for="Match.BlueTeam1ID" class="form-control" runat="server" list="BlueTeam1ID" />
+    <datalist id="BlueTeam1ID">
+        @foreach (var team in Model.Team)
+        {
+            <option value="@team.ID">@team.TeamName</option>
+        }
+    </datalist>-->
+                <!-- @Html.DropDownListFor(model => model.Team, teamIDs, "-- Select Team --") -->
                 <span asp-validation-for="Match.BlueTeam1ID" class="text-danger"></span>
             </div>
             <div class="form-group">

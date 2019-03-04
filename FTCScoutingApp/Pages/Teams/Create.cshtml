@@ -26,52 +26,55 @@
             <link rel="stylesheet" href="~/css/toggleSwitch.css" asp-append-version="true" />
             <h2>Robot information</h2>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Team.StartsLatched" /> @Html.DisplayNameFor(model => model.Team.StartsLatched)
-                    </label>
-                </div>
+                <label asp-for="Team.StartLocation" class="control-label"></label>
+                <input asp-for="Team.StartLocation" class="form-control" />
+                <span asp-validation-for="Team.StartLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Team.PrefersStartingCrater" /> @Html.DisplayNameFor(model => model.Team.PrefersStartingCrater)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Team.KnownRobotProblems" class="control-label"></label>
-                <input asp-for="Team.KnownRobotProblems" class="form-control" />
-                <span asp-validation-for="Team.KnownRobotProblems" class="text-danger"></span>
+                <label asp-for="Team.EndLocation" class="control-label"></label>
+                <input asp-for="Team.EndLocation" class="form-control" />
+                <span asp-validation-for="Team.EndLocation" class="text-danger"></span>
             </div>
             <h2>Autonomy</h2>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.HasAutonomy" /> @Html.DisplayNameFor(model => model.Team.HasAutonomy)
+                        <input asp-for="Team.Autonomy" /> @Html.DisplayNameFor(model => model.Team.Autonomy)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.MovesGoldMineral" /> @Html.DisplayNameFor(model => model.Team.MovesGoldMineral)
+                        <input asp-for="Team.Latched" /> @Html.DisplayNameFor(model => model.Team.Latched)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.PlacesTeamMarker" /> @Html.DisplayNameFor(model => model.Team.PlacesTeamMarker)
+                        <input asp-for="Team.Sampling" /> @Html.DisplayNameFor(model => model.Team.Sampling)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.ParksInCrater" /> @Html.DisplayNameFor(model => model.Team.ParksInCrater)
+                        <input asp-for="Team.TeamMarker" /> @Html.DisplayNameFor(model => model.Team.TeamMarker)
                     </label>
                 </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Team.Parking" /> @Html.DisplayNameFor(model => model.Team.Parking)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.Comments" class="control-label"></label>
+                <textarea asp-for="Team.Comments" class="form-control" text-wrap:normal" type="text" placeholder="Add any comments regaring the team here"></textarea>
+                <span asp-validation-for="Team.Comments" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

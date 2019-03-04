@@ -8,33 +8,35 @@ namespace FTCScoutingApp.Models
 {
     public class Team
     {
+        [Key]
         public int ID { get; set; }
-        [Display(Name = "Team Number")]
-        public string TeamID { get; set; }
-        [Display(Name = "Team Name")]
+        public int EventID { get; set; }
+        [Display(Name = "Team ID")]
+        public int TeamID { get; set; }
+        [Display(Name = "Team name")]
         public string TeamName { get; set; }
-            
-        public int Wins { get; set; }
-        public int Loses { get; set; }
-        public int Ties { get; set; }
+        [Display(Name = "Team country")]
+        public string TeamCountry { get; set; }
 
-        [Display(Name = "Starts latched")]
-        public bool StartsLatched { get; set; }
-        [Display(Name = "Starts at crater")]
-        public bool PrefersStartingCrater { get; set; }
-
-        [Display(Name = "Problems with robot")]
-        [DataType(DataType.MultilineText)]
-        public string KnownRobotProblems { get; set; }
+        [Display(Name = "Start location")]
+        public string StartLocation { get; set; }
+        [Display(Name = "End location")]
+        public string EndLocation { get; set; }
 
         [Display(Name = "Autonomy")]
-        public bool HasAutonomy { get; set; }
-        [Display(Name = "Moves gold mineral")]
-        public bool MovesGoldMineral { get; set; }
-        [Display(Name = "Places team marker")]
-        public bool PlacesTeamMarker { get; set; }
-        [Display(Name = "Parks in crater")]
-        public bool ParksInCrater { get; set; }
+        public bool Autonomy { get; set; }
+        [Display(Name = "Latched")]
+        public bool Latched { get; set; }
+        [Display(Name = "Sampling")]
+        public bool Sampling { get; set; }
+        [Display(Name = "Team Marker")]
+        public bool TeamMarker { get; set; }
+        [Display(Name = "Parking")]
+        public bool Parking { get; set; }
+
+        [Display(Name = "Comments")]
+        [DataType(DataType.MultilineText)]
+        public string Comments { get; set; }
 
         public string AllowedUserIDs { get; set; }
     }
