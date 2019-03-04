@@ -22,7 +22,7 @@
 
 <script type="text/javascript" language="JavaScript">
     function SetTextBoxValue() {
-        document.getElementById('BlueTeam1ID').value = document.getElementById('BlueTeam1IDDropdown').value
+        document.getElementById('BlueTeam1ID').value = document.getElementById('BlueTeam1IDDropdown').value;
     }
 </script>
 
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Match.BlueTeam1ID" class="control-label"></label>
-                <input asp-for="Match.BlueTeam1ID" class="form-control" runat="server" list="BlueTeam1ID" />
+                <input asp-for="Match.BlueTeam1ID" class="form-control" runat="server" list="BlueTeam1ID"/>
                 <datalist id="BlueTeam1ID">
                     @foreach (var team in Model.Team)
                     {
@@ -71,7 +71,7 @@
                 <span asp-validation-for="Match.RedTeam2ID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" onclick="javascript:StoreDropDownValues()"/>
+                <input type="submit" value="Create" class="btn btn-default" onclick="javascript:StoreDropDownValues();"/>
             </div>
         </form>
     </div>
