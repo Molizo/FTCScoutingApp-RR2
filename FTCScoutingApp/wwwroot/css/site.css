@@ -28,7 +28,7 @@
 }
 
 .container {
-    min-height: calc(100% - 64px);
+    min-height: 100%;
     padding-top: 60px;
 }
 
