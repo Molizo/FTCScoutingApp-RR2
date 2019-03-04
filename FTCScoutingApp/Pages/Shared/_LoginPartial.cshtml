@@ -5,9 +5,10 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
-        <a asp-area="Identity" class="hidden-mobile" style="float: right;" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
-    </form>
+<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
+    <a href="javascript:{}" class="hidden-mobile" style="float: right;" onclick="document.getElementById('logoutForm').submit();">Logout</a>
+    <a asp-area="Identity" class="hidden-mobile" style="float: right;" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
+</form>
 }
 else
 {
