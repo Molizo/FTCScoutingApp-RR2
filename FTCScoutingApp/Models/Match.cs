@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FTCScoutingApp.Models
 {
@@ -12,8 +8,8 @@ namespace FTCScoutingApp.Models
 
         [Display(Name = "Blue Alliance Score")]
         public int BlueAllianceScore { get; set; }
-        [Display(Name = "Red Alliance Score")]
-        public int RedAllianceScore { get; set; }
+
+        [Display(Name = "Red Alliance Score")] public int RedAllianceScore { get; set; }
 
         public string BlueTeam1ID { get; set; }
         public string BlueTeam2ID { get; set; }

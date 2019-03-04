@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FTCScoutingApp.Data;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FTCScoutingApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp
 {
@@ -45,8 +40,7 @@ namespace FTCScoutingApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<AppDataContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("TeamContext")));
-            
+                options.UseSqlServer(Configuration.GetConnectionString("TeamContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,25 +8,23 @@ namespace FTCScoutingApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Event",
-                columns: table => new
+                "Event",
+                table => new
                 {
                     ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:ValueGenerationStrategy",
+                            SqlServerValueGenerationStrategy.IdentityColumn),
                     EventName = table.Column<string>(nullable: true),
                     MatchesPlayed = table.Column<int>(nullable: false),
                     GamesPlayed = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Event", x => x.ID);
-                });
+                constraints: table => { table.PrimaryKey("PK_Event", x => x.ID); });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Event");
+                "Event");
         }
     }
 }

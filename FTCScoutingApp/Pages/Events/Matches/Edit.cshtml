@@ -8,44 +8,44 @@
 <h2>Edit</h2>
 
 <h4>Match</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Match.ID" />
+            <input type="hidden" asp-for="Match.ID"/>
             <div class="form-group">
                 <label asp-for="Match.BlueAllianceScore" class="control-label"></label>
-                <input asp-for="Match.BlueAllianceScore" class="form-control" />
+                <input asp-for="Match.BlueAllianceScore" class="form-control"/>
                 <span asp-validation-for="Match.BlueAllianceScore" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Match.RedAllianceScore" class="control-label"></label>
-                <input asp-for="Match.RedAllianceScore" class="form-control" />
+                <input asp-for="Match.RedAllianceScore" class="form-control"/>
                 <span asp-validation-for="Match.RedAllianceScore" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Match.BlueTeam1ID" class="control-label"></label>
-                <input asp-for="Match.BlueTeam1ID" class="form-control" />
+                <input asp-for="Match.BlueTeam1ID" class="form-control"/>
                 <span asp-validation-for="Match.BlueTeam1ID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Match.BlueTeam2ID" class="control-label"></label>
-                <input asp-for="Match.BlueTeam2ID" class="form-control" />
+                <input asp-for="Match.BlueTeam2ID" class="form-control"/>
                 <span asp-validation-for="Match.BlueTeam2ID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Match.RedTeam1ID" class="control-label"></label>
-                <input asp-for="Match.RedTeam1ID" class="form-control" />
+                <input asp-for="Match.RedTeam1ID" class="form-control"/>
                 <span asp-validation-for="Match.RedTeam1ID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Match.RedTeam2ID" class="control-label"></label>
-                <input asp-for="Match.RedTeam2ID" class="form-control" />
+                <input asp-for="Match.RedTeam2ID" class="form-control"/>
                 <span asp-validation-for="Match.RedTeam2ID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default"/>
             </div>
         </form>
     </div>
@@ -56,5 +56,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

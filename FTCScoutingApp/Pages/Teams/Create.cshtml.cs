@@ -1,41 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp.Pages.Teams
 {
     public class CreateModel : PageModel
     {
-        private readonly FTCScoutingApp.Models.AppDataContext _context;
+        private readonly AppDataContext _context;
 
-        public CreateModel(FTCScoutingApp.Models.AppDataContext context)
+        public CreateModel(AppDataContext context)
         {
             _context = context;
         }
 
+        [BindProperty] public Team Team { get; set; }
+
         public IActionResult OnGet()
         {
-            if(User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
                 return Page();
-            else
-                return RedirectToPage("/Error");
+            return RedirectToPage("/Error");
         }
-
-        [BindProperty]
-        public Team Team { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            
+            if (!ModelState.IsValid) return Page();
+
             Team.AllowedUserIDs = User.Identity.Name;
 
             _context.Team.Add(Team);

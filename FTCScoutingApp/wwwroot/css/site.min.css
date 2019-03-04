@@ -31,8 +31,7 @@
 
 .container {
     padding-top: 60px;
-    min-height: 100%;
-    margin-bottom: -64px;
+    min-height: calc(100% - 64px);
 }
 
 #navbar {

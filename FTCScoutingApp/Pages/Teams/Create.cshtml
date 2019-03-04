@@ -7,7 +7,7 @@
 
 <h2>Add a team</h2>
 
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -15,59 +15,59 @@
             <h2>Team information</h2>
             <div class="form-group">
                 <label asp-for="Team.TeamID" class="control-label"></label>
-                <input asp-for="Team.TeamID" class="form-control" />
+                <input asp-for="Team.TeamID" class="form-control"/>
                 <span asp-validation-for="Team.TeamID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Team.TeamName" class="control-label"></label>
-                <input asp-for="Team.TeamName" class="form-control" />
+                <input asp-for="Team.TeamName" class="form-control"/>
                 <span asp-validation-for="Team.TeamName" class="text-danger"></span>
             </div>
-            <link rel="stylesheet" href="~/css/toggleSwitch.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/css/toggleSwitch.css" asp-append-version="true"/>
             <h2>Robot information</h2>
             <div class="form-group">
                 <label asp-for="Team.StartLocation" class="control-label"></label>
-                <input asp-for="Team.StartLocation" class="form-control" />
+                <input asp-for="Team.StartLocation" class="form-control"/>
                 <span asp-validation-for="Team.StartLocation" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Team.EndLocation" class="control-label"></label>
-                <input asp-for="Team.EndLocation" class="form-control" />
+                <input asp-for="Team.EndLocation" class="form-control"/>
                 <span asp-validation-for="Team.EndLocation" class="text-danger"></span>
             </div>
             <h2>Autonomy</h2>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.Autonomy" /> @Html.DisplayNameFor(model => model.Team.Autonomy)
+                        <input asp-for="Team.Autonomy"/> @Html.DisplayNameFor(model => model.Team.Autonomy)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.Latched" /> @Html.DisplayNameFor(model => model.Team.Latched)
+                        <input asp-for="Team.Latched"/> @Html.DisplayNameFor(model => model.Team.Latched)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.Sampling" /> @Html.DisplayNameFor(model => model.Team.Sampling)
+                        <input asp-for="Team.Sampling"/> @Html.DisplayNameFor(model => model.Team.Sampling)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.TeamMarker" /> @Html.DisplayNameFor(model => model.Team.TeamMarker)
+                        <input asp-for="Team.TeamMarker"/> @Html.DisplayNameFor(model => model.Team.TeamMarker)
                     </label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Team.Parking" /> @Html.DisplayNameFor(model => model.Team.Parking)
+                        <input asp-for="Team.Parking"/> @Html.DisplayNameFor(model => model.Team.Parking)
                     </label>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <span asp-validation-for="Team.Comments" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default"/>
             </div>
         </form>
     </div>
@@ -88,5 +88,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

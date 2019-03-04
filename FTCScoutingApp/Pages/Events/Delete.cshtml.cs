@@ -1,48 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp.Pages.Events
 {
     public class DeleteModel : PageModel
     {
-        private readonly FTCScoutingApp.Models.AppDataContext _context;
+        private readonly AppDataContext _context;
 
-        public DeleteModel(FTCScoutingApp.Models.AppDataContext context)
+        public DeleteModel(AppDataContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Event Event { get; set; }
+        [BindProperty] public Event Event { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Event = await _context.Event.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Event == null)
-            {
-                return NotFound();
-            }
+            if (Event == null) return NotFound();
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Event = await _context.Event.FindAsync(id);
 

@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp.Pages.Teams
 {
     public class IndexModel : PageModel
     {
-        private readonly FTCScoutingApp.Models.AppDataContext _context;
+        private readonly AppDataContext _context;
 
-        public IndexModel(FTCScoutingApp.Models.AppDataContext context)
+        public IndexModel(AppDataContext context)
         {
             _context = context;
         }
 
-        public IList<Team> Team { get;set; }
+        public IList<Team> Team { get; set; }
 
         public async Task OnGetAsync()
         {

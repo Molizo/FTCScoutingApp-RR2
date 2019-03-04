@@ -1,44 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp.Pages.Teams
 {
     public class EditModel : PageModel
     {
-        private readonly FTCScoutingApp.Models.AppDataContext _context;
+        private readonly AppDataContext _context;
 
-        public EditModel(FTCScoutingApp.Models.AppDataContext context)
+        public EditModel(AppDataContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Team Team { get; set; }
+        [BindProperty] public Team Team { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Team = await _context.Team.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Team == null)
-            {
-                return NotFound();
-            }
+            if (Team == null) return NotFound();
             if (User.Identity.IsAuthenticated)
                 return Page();
-            else
-                return RedirectToPage("/Error");
+            return RedirectToPage("/Error");
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -47,8 +36,7 @@ namespace FTCScoutingApp.Pages.Teams
             {
                 if (User.Identity.IsAuthenticated)
                     return Page();
-                else
-                    return RedirectToPage("/Error");
+                return RedirectToPage("/Error");
             }
 
             _context.Attach(Team).State = EntityState.Modified;
@@ -60,13 +48,8 @@ namespace FTCScoutingApp.Pages.Teams
             catch (DbUpdateConcurrencyException)
             {
                 if (!TeamExists(Team.ID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");

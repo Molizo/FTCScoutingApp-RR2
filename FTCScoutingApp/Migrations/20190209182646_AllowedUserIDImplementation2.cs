@@ -7,16 +7,16 @@ namespace FTCScoutingApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "AllowedUserIDs",
-                table: "Team",
+                "AllowedUserIDs",
+                "Team",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "AllowedUserIDs",
-                table: "Team");
+                "AllowedUserIDs",
+                "Team");
         }
     }
 }

@@ -1,49 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using FTCScoutingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FTCScoutingApp.Models;
 
 namespace FTCScoutingApp.Pages.Events.Matches
 {
     public class EditModel : PageModel
     {
-        private readonly FTCScoutingApp.Models.AppDataContext _context;
+        private readonly AppDataContext _context;
 
-        public EditModel(FTCScoutingApp.Models.AppDataContext context)
+        public EditModel(AppDataContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-        public Match Match { get; set; }
+        [BindProperty] public Match Match { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             Match = await _context.Match.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Match == null)
-            {
-                return NotFound();
-            }
+            if (Match == null) return NotFound();
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
             _context.Attach(Match).State = EntityState.Modified;
 
@@ -54,13 +41,8 @@ namespace FTCScoutingApp.Pages.Events.Matches
             catch (DbUpdateConcurrencyException)
             {
                 if (!MatchExists(Match.ID))
-                {
                     return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
 
             return RedirectToPage("./Index");

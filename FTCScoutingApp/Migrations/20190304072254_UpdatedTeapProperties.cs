@@ -7,145 +7,145 @@ namespace FTCScoutingApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "HasAutonomy",
-                table: "Team");
+                "HasAutonomy",
+                "Team");
 
             migrationBuilder.DropColumn(
-                name: "Loses",
-                table: "Team");
+                "Loses",
+                "Team");
 
             migrationBuilder.DropColumn(
-                name: "Ties",
-                table: "Team");
+                "Ties",
+                "Team");
 
             migrationBuilder.RenameColumn(
-                name: "Wins",
-                table: "Team",
-                newName: "EventID");
+                "Wins",
+                "Team",
+                "EventID");
 
             migrationBuilder.RenameColumn(
-                name: "StartsLatched",
-                table: "Team",
-                newName: "TeamMarker");
+                "StartsLatched",
+                "Team",
+                "TeamMarker");
 
             migrationBuilder.RenameColumn(
-                name: "PrefersStartingCrater",
-                table: "Team",
-                newName: "Sampling");
+                "PrefersStartingCrater",
+                "Team",
+                "Sampling");
 
             migrationBuilder.RenameColumn(
-                name: "PlacesTeamMarker",
-                table: "Team",
-                newName: "Parking");
+                "PlacesTeamMarker",
+                "Team",
+                "Parking");
 
             migrationBuilder.RenameColumn(
-                name: "ParksInCrater",
-                table: "Team",
-                newName: "Latched");
+                "ParksInCrater",
+                "Team",
+                "Latched");
 
             migrationBuilder.RenameColumn(
-                name: "MovesGoldMineral",
-                table: "Team",
-                newName: "Autonomy");
+                "MovesGoldMineral",
+                "Team",
+                "Autonomy");
 
             migrationBuilder.RenameColumn(
-                name: "KnownRobotProblems",
-                table: "Team",
-                newName: "TeamCountry");
+                "KnownRobotProblems",
+                "Team",
+                "TeamCountry");
 
             migrationBuilder.AlterColumn<int>(
-                name: "TeamID",
-                table: "Team",
+                "TeamID",
+                "Team",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldNullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Comments",
-                table: "Team",
+                "Comments",
+                "Team",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "EndLocation",
-                table: "Team",
+                "EndLocation",
+                "Team",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "StartLocation",
-                table: "Team",
+                "StartLocation",
+                "Team",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Comments",
-                table: "Team");
+                "Comments",
+                "Team");
 
             migrationBuilder.DropColumn(
-                name: "EndLocation",
-                table: "Team");
+                "EndLocation",
+                "Team");
 
             migrationBuilder.DropColumn(
-                name: "StartLocation",
-                table: "Team");
+                "StartLocation",
+                "Team");
 
             migrationBuilder.RenameColumn(
-                name: "TeamMarker",
-                table: "Team",
-                newName: "StartsLatched");
+                "TeamMarker",
+                "Team",
+                "StartsLatched");
 
             migrationBuilder.RenameColumn(
-                name: "TeamCountry",
-                table: "Team",
-                newName: "KnownRobotProblems");
+                "TeamCountry",
+                "Team",
+                "KnownRobotProblems");
 
             migrationBuilder.RenameColumn(
-                name: "Sampling",
-                table: "Team",
-                newName: "PrefersStartingCrater");
+                "Sampling",
+                "Team",
+                "PrefersStartingCrater");
 
             migrationBuilder.RenameColumn(
-                name: "Parking",
-                table: "Team",
-                newName: "PlacesTeamMarker");
+                "Parking",
+                "Team",
+                "PlacesTeamMarker");
 
             migrationBuilder.RenameColumn(
-                name: "Latched",
-                table: "Team",
-                newName: "ParksInCrater");
+                "Latched",
+                "Team",
+                "ParksInCrater");
 
             migrationBuilder.RenameColumn(
-                name: "EventID",
-                table: "Team",
-                newName: "Wins");
+                "EventID",
+                "Team",
+                "Wins");
 
             migrationBuilder.RenameColumn(
-                name: "Autonomy",
-                table: "Team",
-                newName: "MovesGoldMineral");
+                "Autonomy",
+                "Team",
+                "MovesGoldMineral");
 
             migrationBuilder.AlterColumn<string>(
-                name: "TeamID",
-                table: "Team",
+                "TeamID",
+                "Team",
                 nullable: true,
                 oldClrType: typeof(int));
 
             migrationBuilder.AddColumn<bool>(
-                name: "HasAutonomy",
-                table: "Team",
+                "HasAutonomy",
+                "Team",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<int>(
-                name: "Loses",
-                table: "Team",
+                "Loses",
+                "Team",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
-                name: "Ties",
-                table: "Team",
+                "Ties",
+                "Team",
                 nullable: false,
                 defaultValue: 0);
         }
