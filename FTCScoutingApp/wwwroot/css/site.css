@@ -35,40 +35,26 @@ body {
     }
 }
 
-.container {
-    padding-top: 60px;
-}
-
 #navbar {
     overflow: hidden;
     background-color: #333;
-    z-index: 70;
 }
 
-    #navbar a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
 
-    #navbar button {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
+#navbar a:hover {
+    background-color: #fffffd;
+    color: black;
 
-    #navbar a:hover {
-        background-color: #fffffd;
-        color: black;
-    }
+}
 
     #navbar a.logo {
         background-color: #fffffd;
@@ -81,26 +67,103 @@ body {
     width: 100%;
 }
 
-    .sticky + .content {
-        padding-top: 60px;
-    }
+.sticky + .content {
+    padding-top: 60px;
+}
 
-/* Visibility Helpers */
-
-@media only screen and (min-width:769px) {
-    .visible-mobile, .visible-tablet, .hidden-desktop {
-        display: none !important;
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 98%;
     }
 }
 
-@media only screen and (min-width:480px) and (max-width:768px) {
-    .visible-mobile, .hidden-tablet, .visible-desktop {
-        display: none !important;
+@media (max-width: 1200px) {
+    html {
+        font-size: 15px;
     }
 }
 
-@media only screen and (max-width:479px) {
-    .hidden-mobile, .visible-tablet, .visible-desktop {
-        display: none !important;
+@media (max-width: 992px) {
+    .ipr {
+        font-size: 13px;
     }
+
+    html {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    h5 {
+        font-size: .95rem;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .heading-title > span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+
+    .ipr {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+@media (min-width: 768px) {
+    .slide5 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/slide1R.jpg");
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/slide2R.jpg");
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/slide3R.jpg");
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/slide4R.jpg");
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/slide5.jpg");
+        background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-size: cover;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
 }
