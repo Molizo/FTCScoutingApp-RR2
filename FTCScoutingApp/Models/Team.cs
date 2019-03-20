@@ -22,6 +22,12 @@ namespace FTCScoutingApp.Models
 
         [Display(Name = "End location")] public string EndLocation { get; set; }
 
+        [Display(Name = "Depot Minerals")] public int DepotMinerals { get; set; }
+        [Display(Name = "Gold Minerals")] public int GoldMinerals { get; set; }
+        [Display(Name = "Silver Minerals")] public int SilverMinerals { get; set; }
+
+        [Display(Name = "Expected Points")] public int ExPts { get; set; }
+
         [Display(Name = "Autonomy")] public bool Autonomy { get; set; }
 
         [Display(Name = "Latched")] public bool Latched { get; set; }

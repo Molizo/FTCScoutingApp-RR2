@@ -21,5 +21,6 @@ namespace FTCScoutingApp.Pages.Teams
         {
             Team = await _context.Team.ToListAsync();
         }
+
     }
 }
